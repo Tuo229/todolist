@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Créer un utilisateur</title>
+</head>
+<body>
+    <h1>S'inscrire</h1>
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li {% if message.tags %} class="{{ message.tags }}" id="{{message.tags}}" {% endif %}>{{message}}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <form action="" method="post">
+        {% csrf_token %}
+        {{form}}
+        <input type="submit" value="S'inscrire">
+    </form>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Création de projet</title>
+</head>
+<body>
+    <h1>Créer une tâche</h1>
+    <form method="post"> 
+        {% csrf_token %}
+        {{form}}
+        <input type="submit" value="Créer"/>
+    </form>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Libellé</th>
+                    <th>Date de debut</th>
+                    <th>Date de fin</th>
+                    <th>Propriétaire</th>    
+                </tr>
+            </thead>
+            <tbody>
+
+                    <tr>
+                        <td>{{projet.libelle}}</td>
+                        <td>{{projet.date_debut}}</td>
+                        <td>{{projet.date_fin}}</td>
+                        <td>{{projet.owner}}</td>
+                    </tr>
+
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

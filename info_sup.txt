@@ -1,0 +1,4 @@
+1. Redirection vers la page adequate apres authentification
+2. Sauvergarde des messages de notification
+3. Rendre l'authentification pour la visite de certaines pages
+4. Formatage des dates (en - fr)

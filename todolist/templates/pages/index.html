@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+</head>
+<body>
+    
+    {% if request.user.is_authenticated %}
+        <h1> {{user}} <a href="{% url 'apptache:logout' %}">Déconnexion</a></h1>
+    {% endif %}
+    
+    <h1>Bienvenue sur notre application de gestion de tâches</h1>
+    {% if not request.user.is_authenticated %}
+        <div>
+            <a href="{% url 'apptache:create_user' %}">S'inscrire</a>
+        </div>
+        <div>
+            <a href="{% url 'apptache:login' %}">Se connecter</a>
+        </div>
+    {% else %}
+        <div>
+            <a href="{% url 'apptache:user_list' %}">Liste des utilisateurs</a>
+        </div>
+        <div>
+            <a href="{% url 'apptache:create_projet' %}">Ajouter une nouvelle tâche</a>
+        </div>
+        <div>
+            <a href="{% url 'apptache:liste_projet' %}">Liste des tâches</a>
+        </div>
+    {% endif %}
+</body>
+</html>
